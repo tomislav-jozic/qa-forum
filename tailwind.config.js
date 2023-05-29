@@ -14,9 +14,17 @@ export default {
         extend: {
             colors: {
                 "bg-gray-background": "#f7f8fc",
+                blue: "rgb(29, 78, 216)",
+                yellow: "rgb(250, 204, 21)",
+                red: "rgb(220, 38, 38)",
+                green: "rgb(21, 128, 61)",
+                purple: "rgb(168, 85, 247)",
             },
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
+            },
+            fontSize: {
+                xxs: ["0.625rem", { lineHeight: "1rem" }],
             },
         },
     },

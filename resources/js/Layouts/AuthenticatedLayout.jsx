@@ -196,7 +196,66 @@ export default function Authenticated({ user, header, children }) {
                 </header>
             )}
 
-            <main>{children}</main>
+            <div className="py-12">
+                <div className="flex gap-4 w-full max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div className="w-full max-w-[33%]">
+                        <div className="p-6 text-gray-900">Form goes here</div>
+                    </div>
+                    <div className="w-full max-w-[66%]">
+                        <div className="p-6 text-gray-900">
+                            <nav className="flex items-center justify-between text-sm">
+                                <ul className="flex uppercase font-semibold border-b-4 pb-3 space-x-10">
+                                    <li>
+                                        <a
+                                            href="#"
+                                            className="border-b-4 pb-3.5 border-b-blue"
+                                        >
+                                            ALL IDEAS (87)
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#"
+                                            className="border-b-4 pb-3.5 text-gray-400 transition duration-150 ease-in-out hover:border-blue"
+                                        >
+                                            Considering (6)
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#"
+                                            className="border-b-4 pb-3.5 text-gray-400 transition duration-150 ease-in-out hover:border-blue"
+                                        >
+                                            In progress (1)
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <ul className="flex uppercase font-semibold border-b-4 pb-3 space-x-10">
+                                    <li>
+                                        <a
+                                            href="#"
+                                            className="border-b-4 pb-3.5 text-gray-400 transition duration-150 ease-in-out hover:border-blue"
+                                        >
+                                            Implemented (10)
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#"
+                                            className="border-b-4 pb-3.5 text-gray-400 transition duration-150 ease-in-out hover:border-blue"
+                                        >
+                                            Close (55)
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+
+                            <div className="mt-8">{children}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
