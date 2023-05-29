@@ -9,7 +9,7 @@ export default function Authenticated({ user, header, children }) {
         useState(false);
 
     return (
-        <div className="min-h-screen bg-gray-100">
+        <div className="min-h-screen bg-gray-200">
             <nav className="bg-white border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
@@ -133,38 +133,58 @@ export default function Authenticated({ user, header, children }) {
                         " sm:hidden"
                     }
                 >
-                    <div className="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink
-                            href={route("dashboard")}
-                            active={route().current("dashboard")}
-                        >
-                            Dashboard
-                        </ResponsiveNavLink>
-                    </div>
-
-                    <div className="pt-4 pb-1 border-t border-gray-200">
-                        <div className="px-4">
-                            <div className="font-medium text-base text-gray-800">
-                                {user?.name}
+                    {user ? (
+                        <>
+                            <div className="pt-2 pb-3 space-y-1">
+                                <ResponsiveNavLink
+                                    href={route("dashboard")}
+                                    active={route().current("dashboard")}
+                                >
+                                    Dashboard
+                                </ResponsiveNavLink>
                             </div>
-                            <div className="font-medium text-sm text-gray-500">
-                                {user?.email}
-                            </div>
-                        </div>
 
-                        <div className="mt-3 space-y-1">
-                            <ResponsiveNavLink href={route("profile.edit")}>
-                                Profile
-                            </ResponsiveNavLink>
-                            <ResponsiveNavLink
-                                method="post"
-                                href={route("logout")}
-                                as="button"
-                            >
-                                Log Out
-                            </ResponsiveNavLink>
-                        </div>
-                    </div>
+                            <div className="pt-4 pb-1 border-t border-gray-200">
+                                <div className="px-4">
+                                    <div className="font-medium text-base text-gray-800">
+                                        {user?.name}
+                                    </div>
+                                    <div className="font-medium text-sm text-gray-500">
+                                        {user?.email}
+                                    </div>
+                                </div>
+
+                                <div className="mt-3 space-y-1">
+                                    <ResponsiveNavLink
+                                        href={route("profile.edit")}
+                                    >
+                                        Profile
+                                    </ResponsiveNavLink>
+                                    <ResponsiveNavLink
+                                        method="post"
+                                        href={route("logout")}
+                                        as="button"
+                                    >
+                                        Log Out
+                                    </ResponsiveNavLink>
+                                </div>
+                            </div>
+                        </>
+                    ) : (
+                        <>
+                            <div className="mt-3 space-y-1">
+                                <ResponsiveNavLink href={route("login")}>
+                                    Login
+                                </ResponsiveNavLink>
+                                <ResponsiveNavLink
+                                    href={route("register")}
+                                    as="button"
+                                >
+                                    Register
+                                </ResponsiveNavLink>
+                            </div>
+                        </>
+                    )}
                 </div>
             </nav>
 
